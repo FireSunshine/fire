@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Alert from './components/Alert/Alert';
 import Button from './components/Button/Button';
 
 function App() {
@@ -31,6 +32,23 @@ function App() {
         <Button btnType="danger" loading size="lg">
           danger
         </Button>
+      </div>
+      <div style={{ width: '80%' }}>
+        <Alert message="this is success" type="success" description="this is description" />
+        <br />
+        <Alert message="this is info" type="info" description="this is description" />
+        <br />
+        <Alert message="this is warning" type="warning" description="this is description" />
+        <br />
+        <Alert message="this is error" type="error" description="this is description" />
+        <br />
+        <Alert message="this is defalut" description="this is description" closable />
+        <br />
+        <Alert message />
+        <br />
+        <Alert message="7878" closable />
+        <br />
+        <Alert description="7878" closable className="999999" />
       </div>
     </>
   );

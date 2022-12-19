@@ -1,0 +1,33 @@
+.alert {
+  display: flex;
+  justify-content: space-between;
+  border: $border-width solid;
+  border-radius: $border-radius;
+  padding: 8px 12px;
+  @include alert-style(lighten($green, 50%), lighten($green, 20%));
+}
+.alert-success {
+  @include alert-style(lighten($green, 50%), lighten($green, 20%));
+}
+.alert-info {
+  @include alert-style(lighten($blue, 40%), lighten($blue, 20%));
+}
+.alert-warning {
+  @include alert-style(lighten($orange, 40%), lighten($orange, 20%));
+}
+.alert-error {
+  @include alert-style(lighten($red, 40%), lighten($red, 20%));
+}
+
+.alert-message {
+  font-size: $font-size-base;
+}
+.alert-description {
+  font-size: $font-size-sm;
+}
+.alert-with-description {
+  margin-bottom: $headings-margin-bottom;
+}
+.alert-colse {
+  cursor: pointer;
+}

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 
 export type Type = 'success' | 'info' | 'warning' | 'error';
-interface BaseAlertProps {
+export interface BaseAlertProps {
   /** 样式类名 */
   className?: string;
   /** 指定警告样式*/

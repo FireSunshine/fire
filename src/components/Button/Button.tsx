@@ -41,7 +41,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     return (
       <button className={classes} disabled={disabled} {...restProps}>
         {loading && !disabled && <img src={loadingImg} alt="" />}
-        <span>{children}</span>
+        {children}
       </button>
     );
   }

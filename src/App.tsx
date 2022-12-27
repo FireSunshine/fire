@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import Alert from './components/Alert/Alert';
 import Button from './components/Button/Button';
+import Menu from './components/Menu/Menu';
+import MenuItem from './components/Menu/MenuItem';
+import SubMenu from './components/Menu/SubMenu';
 
 function App() {
   const [loading, setLoading] = useState(false);
   return (
     <>
-      <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
+      {/* button */}
+      {/* <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
         <Button onClick={() => setLoading(true)}>默认</Button>
         <Button btnType="primary" className="name" loading={loading}>
           primary
@@ -32,8 +36,9 @@ function App() {
         <Button btnType="danger" loading size="lg">
           danger
         </Button>
-      </div>
-      <div style={{ width: '80%' }}>
+      </div> */}
+      {/* alert */}
+      {/* <div style={{ width: '80%' }}>
         <Alert message="this is success" type="success" description="this is description" />
         <br />
         <Alert message="this is info" type="info" description="this is description" />
@@ -49,6 +54,18 @@ function App() {
         <Alert message="7878" closable />
         <br />
         <Alert description="7878" closable className="999999" />
+      </div> */}
+      <div>
+        <Menu onSelect={(index) => alert(index)} mode="vertical" defaultOpenSubMenus={['3']}>
+          <MenuItem>menu 1</MenuItem>
+          <MenuItem disabled>menu 2</MenuItem>
+          <MenuItem>menu 3</MenuItem>
+          <SubMenu title="menu 4-4">
+            <MenuItem>menu 1</MenuItem>
+            <MenuItem disabled>menu 2</MenuItem>
+            <MenuItem>menu 3</MenuItem>
+          </SubMenu>
+        </Menu>
       </div>
     </>
   );

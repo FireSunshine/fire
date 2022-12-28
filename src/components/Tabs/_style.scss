@@ -1,0 +1,51 @@
+.fire-tabs {
+  ul:first-child {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    position: relative;
+    &::before {
+      content: '';
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      border-bottom: $border-width solid $gray-200;
+    }
+    .tabs-item {
+      cursor: pointer;
+      padding: 8px 0;
+      border-bottom: $tabs-item-active-border-width solid transparent;
+      &:hover {
+        color: $tabs-item-active-color;
+        transition: 500ms;
+      }
+      &.is-active {
+        color: $tabs-item-active-color;
+        border-bottom: $tabs-item-active-border-width solid $tabs-item-active-color;
+      }
+      &.is-disabled {
+        cursor: not-allowed;
+        pointer-events: none;
+        color: $gray-500;
+        position: relative;
+      }
+    }
+    .tabs-item:not(:first-child) {
+      margin-left: 30px;
+    }
+  }
+  &.tabs-card {
+    .tabs-item {
+      background-color: $gray-100;
+      border: $border-width solid $gray-400;
+      border-radius: $tabs-item-border-radius $tabs-item-border-radius 0 0;
+      padding: 6px 12px !important;
+      position: relative;
+      border-bottom: $border-width solid $gray-200 !important;
+      &.is-active {
+        background-color: $white;
+        border-bottom: $tabs-item-active-border-width solid $white !important;
+      }
+    }
+  }
+}

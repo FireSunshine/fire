@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React, { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
-import loadingImg from '../../assets/images/loading.svg';
+import loadingImg from 'assets/images/loading.svg';
 
 export type ButtonSize = 'lg' | 'sm';
 export type ButtonType = 'primary' | 'default' | 'danger' | 'link';

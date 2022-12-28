@@ -236,6 +236,11 @@ $menu-item-disabled-color: $gray-600 !default;
 //submenu
 $submenu-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 0 6px 0 rgba(0, 0, 0, 0.04);
 
+// Tabs
+$tabs-item-active-border-width: 2px !default;
+$tabs-item-active-color: $primary !default;
+$tabs-item-border-radius: $border-radius !default;
+
 //input
 $input-padding-y: $btn-padding-y !default;
 $input-padding-x: $btn-padding-x !default;

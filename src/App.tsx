@@ -1,9 +1,12 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from 'react';
 import Alert from './components/Alert/Alert';
 import Button from './components/Button/Button';
 import Menu from './components/Menu/Menu';
 import MenuItem from './components/Menu/MenuItem';
 import SubMenu from './components/Menu/SubMenu';
+import Tabs from './components/Tabs/Tabs';
+import loadingImg from 'assets/images/loading.svg';
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -55,7 +58,7 @@ function App() {
         <br />
         <Alert description="7878" closable className="999999" />
       </div> */}
-      <div>
+      {/* <div>
         <Menu onSelect={(index) => alert(index)} mode="vertical" defaultOpenSubMenus={['3']}>
           <MenuItem>menu 1</MenuItem>
           <MenuItem disabled>menu 2</MenuItem>
@@ -65,7 +68,56 @@ function App() {
             <MenuItem disabled>menu 2</MenuItem>
             <MenuItem>menu 3</MenuItem>
           </SubMenu>
-        </Menu>
+        </Menu>>
+      </div> */}
+      <div>
+        <Tabs
+          type="card"
+          items={[
+            {
+              label: 'Tab 1',
+              disabled: true,
+              key: '1',
+              children: 'Tab 1',
+            },
+            {
+              label: 'Tab 2',
+              key: '2',
+              children: 'Tab 2',
+            },
+            {
+              label: 'Tab 3',
+              key: '3',
+              children: 'Tab 3',
+            },
+          ]}
+        />
+        <Tabs
+          onChange={(key) => console.log(key)}
+          items={[
+            {
+              label: 'Tab 1',
+              key: '1',
+              children: 'Tab 1 children',
+            },
+            {
+              label: <div onClick={() => alert(999)}>Tab 2</div>,
+              key: '2',
+              disabled: true,
+              children: 'Tab 2 children',
+            },
+            {
+              label: (
+                <>
+                  <img src={loadingImg} alt="" />
+                  Tab 2
+                </>
+              ),
+              key: '3',
+              children: 'Tab 3 children',
+            },
+          ]}
+        />
       </div>
     </>
   );

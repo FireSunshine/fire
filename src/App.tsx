@@ -7,6 +7,11 @@ import MenuItem from './components/Menu/MenuItem';
 import SubMenu from './components/Menu/SubMenu';
 import Tabs from './components/Tabs/Tabs';
 import loadingImg from 'assets/images/loading.svg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShareAltSquare, faCoffee, fas } from '@fortawesome/free-solid-svg-icons';
+import Icon from 'components/Icon/Icon';
+import { library } from '@fortawesome/fontawesome-svg-core';
+library.add(fas);
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -14,7 +19,9 @@ function App() {
     <>
       {/* button */}
       {/* <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
-        <Button onClick={() => setLoading(true)}>默认</Button>
+        <Button onClick={() => setLoading(true)} data-testid="34567" lhy-testid="4567" lhy-woid="4567">
+          默认
+        </Button>
         <Button btnType="primary" className="name" loading={loading}>
           primary
         </Button>
@@ -70,7 +77,7 @@ function App() {
           </SubMenu>
         </Menu>>
       </div> */}
-      <div>
+      {/* <div>
         <Tabs
           type="card"
           items={[
@@ -118,7 +125,11 @@ function App() {
             },
           ]}
         />
-      </div>
+      </div> */}
+      <FontAwesomeIcon icon={faShareAltSquare} />
+      <FontAwesomeIcon icon={faCoffee} size="10x" color="red" />
+      <Icon icon="face-kiss" size="6x" />
+      <Icon icon={faCoffee} size="6x" />
     </>
   );
 }

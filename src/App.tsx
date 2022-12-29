@@ -128,8 +128,8 @@ function App() {
       </div> */}
       <FontAwesomeIcon icon={faShareAltSquare} />
       <FontAwesomeIcon icon={faCoffee} size="10x" color="red" />
-      <Icon icon="face-kiss" size="6x" />
-      <Icon icon={faCoffee} size="6x" />
+      <Icon icon="face-kiss" size="6x" theme="primary" />
+      <Icon icon={faCoffee} size="6x" theme="secondary" />
     </>
   );
 }

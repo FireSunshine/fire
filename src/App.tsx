@@ -11,10 +11,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShareAltSquare, faCoffee, fas } from '@fortawesome/free-solid-svg-icons';
 import Icon from 'components/Icon/Icon';
 import { library } from '@fortawesome/fontawesome-svg-core';
+import Transition from 'components/Transition/Transition';
 library.add(fas);
 
 function App() {
   const [loading, setLoading] = useState(false);
+  const [showButton, setShowButton] = useState(true);
+  const [showMessage, setShowMessage] = useState(false);
   return (
     <>
       {/* button */}
@@ -129,7 +132,20 @@ function App() {
       <FontAwesomeIcon icon={faShareAltSquare} />
       <FontAwesomeIcon icon={faCoffee} size="10x" color="red" />
       <Icon icon="face-kiss" size="6x" theme="primary" />
-      <Icon icon={faCoffee} size="6x" theme="secondary" />
+      {showButton && (
+        <Button onClick={() => setShowMessage(true)} size="lg">
+          Show Message
+        </Button>
+      )}
+      <Transition in={showMessage} timeout={300} animation="zoom-in-top">
+        <div>
+          <div>Animated alert message</div>
+          <p>This alert message is being transitioned in and out of the DOM.</p>
+          <Button btnType="primary" onClick={() => setShowMessage(false)}>
+            Close
+          </Button>
+        </div>
+      </Transition>
     </>
   );
 }

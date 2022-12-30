@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { CSSTransitionProps } from 'react-transition-group/CSSTransition';
 
@@ -7,14 +7,15 @@ type TransitionProps = CSSTransitionProps & {
   children: React.ReactNode;
   classNames?: string;
   animation?: AnimationName;
-  wrapper?: boolean;
   timeout: number;
 };
 const Transition: React.FC<TransitionProps> = (props) => {
-  const { children, classNames, animation, wrapper, timeout, ...restProps } = props;
+  const { children, classNames, animation, timeout, ...restProps } = props;
+  const nodeRef = useRef(null);
+
   return (
-    <CSSTransition classNames={classNames ?? animation} timeout={timeout} {...restProps}>
-      {children}
+    <CSSTransition classNames={classNames ?? animation} timeout={300} nodeRef={nodeRef} {...restProps}>
+      <div ref={nodeRef}>{children}</div>
     </CSSTransition>
   );
 };

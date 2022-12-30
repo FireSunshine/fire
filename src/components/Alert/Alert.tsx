@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
+import Icon from 'components/Icon/Icon';
+import Transition from 'components/Transition/Transition';
 
 export type Type = 'success' | 'info' | 'warning' | 'error';
 export interface BaseAlertProps {
@@ -34,21 +36,19 @@ const Alert: React.FC<BaseAlertProps> = (props) => {
   };
 
   return (
-    <>
-      {visible && (
-        <div className={classes} {...restProps}>
-          <div className="alert-content">
-            <div className="alert-message">{message}</div>
-            <div className="alert-description">{description}</div>
-          </div>
-          {closable && (
-            <span className="alert-colse" onClick={handleClick}>
-              ᙮
-            </span>
-          )}
+    <Transition in={visible} timeout={300} animation="zoom-in-left">
+      <div className={classes} {...restProps}>
+        <div className="alert-content">
+          <div className="alert-message">{message}</div>
+          <div className="alert-description">{description}</div>
         </div>
-      )}
-    </>
+        {closable && (
+          <div className="alert-colse" onClick={handleClick}>
+            <Icon icon="close" />
+          </div>
+        )}
+      </div>
+    </Transition>
   );
 };
 

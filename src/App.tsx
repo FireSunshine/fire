@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Alert from './components/Alert/Alert';
 import Button from './components/Button/Button';
 import Menu from './components/Menu/Menu';
@@ -8,16 +8,18 @@ import SubMenu from './components/Menu/SubMenu';
 import Tabs from './components/Tabs/Tabs';
 import loadingImg from 'assets/images/loading.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShareAltSquare, faCoffee, fas } from '@fortawesome/free-solid-svg-icons';
+import { faShareAltSquare, faCoffee, fas, faClose } from '@fortawesome/free-solid-svg-icons';
 import Icon from 'components/Icon/Icon';
-import { library } from '@fortawesome/fontawesome-svg-core';
+// import { library } from '@fortawesome/fontawesome-svg-core';
 import Transition from 'components/Transition/Transition';
-library.add(fas);
+// library.add(fas);
 
 function App() {
   const [loading, setLoading] = useState(false);
   const [showButton, setShowButton] = useState(true);
   const [showMessage, setShowMessage] = useState(false);
+  const nodeRef = useRef(null);
+
   return (
     <>
       {/* button */}
@@ -51,7 +53,7 @@ function App() {
         </Button>
       </div> */}
       {/* alert */}
-      {/* <div style={{ width: '80%' }}>
+      <div style={{ width: '80%' }}>
         <Alert message="this is success" type="success" description="this is description" />
         <br />
         <Alert message="this is info" type="info" description="this is description" />
@@ -67,7 +69,7 @@ function App() {
         <Alert message="7878" closable />
         <br />
         <Alert description="7878" closable className="999999" />
-      </div> */}
+      </div>
       {/* <div>
         <Menu onSelect={(index) => alert(index)} mode="vertical" defaultOpenSubMenus={['3']}>
           <MenuItem>menu 1</MenuItem>
@@ -130,15 +132,15 @@ function App() {
         />
       </div> */}
       <FontAwesomeIcon icon={faShareAltSquare} />
-      <FontAwesomeIcon icon={faCoffee} size="10x" color="red" />
+      <FontAwesomeIcon icon={faClose} size="10x" color="red" />
       <Icon icon="face-kiss" size="6x" theme="primary" />
       {showButton && (
         <Button onClick={() => setShowMessage(true)} size="lg">
           Show Message
         </Button>
       )}
-      <Transition in={showMessage} timeout={300} animation="zoom-in-top">
-        <div>
+      <Transition in={showMessage} nodeRef={nodeRef} timeout={300} animation="zoom-in-top">
+        <div ref={nodeRef}>
           <div>Animated alert message</div>
           <p>This alert message is being transitioned in and out of the DOM.</p>
           <Button btnType="primary" onClick={() => setShowMessage(false)}>
